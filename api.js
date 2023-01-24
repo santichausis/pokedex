@@ -1,30 +1,20 @@
 const pokemonContainer = document.querySelector('.pokemon-container')
-const cache = {};
 
 async function fetchPokemon(id) {
-    const data = JSON.parse(localStorage.getItem(`Pokemon-${id}`));
-    if (data) {
-        createPokemon(data);
-    } else {
-        try {
-
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
-            if (!res.ok) {
-                throw new Error(`Error fetching Pokemon with id ${id}`);
-            }
-            const data = await res.json();
-            cache[id] = data;
-            localStorage.setItem(`Pokemon-${id}`, JSON.stringify(data));
-            createPokemon(data);
-        } catch (error) {
-            console.error(error);
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+    if (!res.ok) {
+            throw new Error(`Error fetching Pokemon with id ${id}`);
         }
+        const data = await res.json();
+        createPokemon(data);
+    } catch (error) {
+        console.error(error);
     }
 }
 
-
-async function fetchPokemons(number) {
-    for (let i = 1; i < number; i++) {
+async function fetchPokemons() {
+    for (let i = 550; i <= 650; i++) {
         await fetchPokemon(i)
     }
 }
@@ -37,7 +27,8 @@ const createPokemon = pokemon => {
     spriteContainer.classList.add('img-container');
 
     const sprite = document.createElement('img');
-    sprite.src = pokemon.sprites.front_default
+    sprite.src = `https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`
+    sprite.alt = `This is ${pokemon.name}`
 
     spriteContainer.appendChild(sprite)
 
@@ -60,9 +51,6 @@ const createPokemon = pokemon => {
             typesContainer.appendChild(document.createTextNode(' '));
         }
     });
-    
-    
-    
 
     card.appendChild(spriteContainer)
     card.appendChild(number)
@@ -71,5 +59,19 @@ const createPokemon = pokemon => {
 
     pokemonContainer.appendChild(card)
 }
+fetchPokemons(1)
 
-fetchPokemons(40)
+const searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", searchPokemon);
+
+async function searchPokemon() {
+    const searchInput = document.querySelector("#search-input").value;
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchInput}`);
+    const data = await res.json();
+
+    // Clear previous search results
+    pokemonContainer.innerHTML = "";
+
+    // Create and append the new search result
+    createPokemon(data);
+}
