@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
+    <title>Pokedex Project</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
     <meta name="description" content="Explore the world of Pokemon and discover the incredible creatures that inhabit it. 
         Learn about the different types, abilities and more with our comprehensive guide. 
         Get ready to become a true Pokemon master!">
@@ -15,13 +16,33 @@
 <body>
     <section class="main-container">
         <h1 class="main-title">Pokedex</h1>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search Pokemon">
-            <button id="search-button">Search</button>
-        </div>
+        <p class="message"></p>
+        <form class="filter-form">
+            <div class="button-group">
+                <button type="button" class="filter-button" data-type="normal">Normal</button>
+                <button type="button" class="filter-button" data-type="fire">Fire</button>
+                <button type="button" class="filter-button" data-type="water">Water</button>
+                <button type="button" class="filter-button" data-type="grass">Grass</button>
+                <button type="button" class="filter-button" data-type="poison">Poison</button>
+                <button type="button" class="filter-button" data-type="flying">Flying</button>
+                <button type="button" class="filter-button" data-type="bug">Bug</button>
+                <button type="button" class="filter-button" data-type="electric">Electric</button>
+                <button type="button" class="filter-button" data-type="ground">Ground</button>
+                <button type="button" class="filter-button" data-type="fairy">Fairy</button>
+                <button type="button" class="filter-button" data-type="fighting">Fighting</button>
+                <button type="button" class="filter-button" data-type="psychic">Psychic</button>
+                <button type="button" class="filter-button" data-type="rock">Rock</button>
+                <button type="button" class="filter-button" data-type="steel">Steel</button>
+                <button type="button" class="filter-button" data-type="ice">Ice</button>
+                <button type="button" class="filter-button" data-type="ghost">Ghost</button>
+                <button class="reset-button">Show All</button>
+            </div>
+        </form>
     </section>
     <section class="main-container">
         <div class="pokemon-container">
+
+
         </div>
     </section>
 
