@@ -19,7 +19,8 @@ async function fetchPokemon(id) {
 // Call the pokemon
 async function fetchPokemons() {
     try {
-        const promises = Array.from({ length: 100 }, (_, i) => fetchPokemon(i + 1));
+        const start = 1;
+        const promises = Array.from({ length: 15 }, (_, i) => fetchPokemon(i + start));
         const pokemonData = await Promise.all(promises);
         pokemonData.forEach(createPokemon);
     } catch (error) {
@@ -30,36 +31,50 @@ async function fetchPokemons() {
 //Filters
 let visiblePokemon = 0;
 
+const handleFilter = (selectedType = '') => {
+    const pokemonBlocks = document.querySelectorAll('.pokemon-block');
+    visiblePokemon = 0;
+    if (selectedType === '') {
+        pokemonBlocks.forEach(block => {
+            block.style.display = 'block';
+            visiblePokemon++;
+        });
+    } else {
+        pokemonBlocks.forEach(block => {
+            const types = block.querySelectorAll('.type');
+            const isCorrectType = Array.from(types).some(type => type.textContent.toLowerCase() === selectedType);
+            if (isCorrectType) {
+                block.style.display = 'block';
+                visiblePokemon++;
+            } else {
+                block.style.display = 'none';
+            }
+        });
+    }
+    if (visiblePokemon === 0) {
+        message.textContent = `Any ${selectedType} Pokemon available`;
+    } else {
+        message.textContent = '';
+    }
+}
+
 filterButtons.forEach(button => {
     button.addEventListener('click', event => {
         const selectedType = event.target.dataset.type;
-        const pokemonBlocks = document.querySelectorAll('.pokemon-block');
-        visiblePokemon = 0;
-        if (selectedType === '') {
-            pokemonBlocks.forEach(block => {
-                block.style.display = 'block';
-                visiblePokemon++;
-            });
-        } else {
-            pokemonBlocks.forEach(block => {
-                const types = block.querySelectorAll('.type');
-                const isCorrectType = Array.from(types).some(type => type.textContent.toLowerCase() === selectedType);
-                if (isCorrectType) {
-                    block.style.display = 'block';
-                    visiblePokemon++;
-                } else {
-                    block.style.display = 'none';
-                }
-            });
-        }
-        if (visiblePokemon === 0) {
-            message.textContent = `Any ${event.target.textContent} Pokemon available`;
-        } else {
-            message.textContent = '';
-        }
+        handleFilter(selectedType);
     });
 });
 
+// Get the "Show all" button
+const showAllButton = document.getElementById("show-all-button");
+
+// Add an event listener to the button
+showAllButton.addEventListener("click", function (event) {
+    // Prevent the default behavior (reloading the page)
+    event.preventDefault();
+
+    handleFilter();
+});
 
 // Create pokemon card
 const createPokemon = pokemon => {

@@ -15,26 +15,30 @@
 
 <body>
     <section class="main-container">
-        <h1 class="main-title">Pokedex</h1>
+        <picture class="main-title ">
+            <img src="./pokemon-logo.webp" alt="Pokemon Logo" class="main-logo">
+        </picture>
         <form class="filter-form">
             <div class="button-group">
-                <button type="button" class="filter-button type-normal" data-type="normal">Normal</button>
-                <button type="button" class="filter-button type-fire" data-type="fire">Fire</button>
-                <button type="button" class="filter-button type-water" data-type="water">Water</button>
-                <button type="button" class="filter-button type-grass" data-type="grass">Grass</button>
-                <button type="button" class="filter-button type-poison" data-type="poison">Poison</button>
-                <button type="button" class="filter-button type-flying" data-type="flying">Flying</button>
-                <button type="button" class="filter-button type-bug" data-type="bug">Bug</button>
-                <button type="button" class="filter-button type-electric" data-type="electric">Electric</button>
-                <button type="button" class="filter-button type-ground" data-type="ground">Ground</button>
-                <button type="button" class="filter-button type-fairy" data-type="fairy">Fairy</button>
-                <button type="button" class="filter-button type-fighting" data-type="fighting">Fighting</button>
-                <button type="button" class="filter-button type-psychic" data-type="psychic">Psychic</button>
-                <button type="button" class="filter-button type-rocl" data-type="rock">Rock</button>
-                <button type="button" class="filter-button type-steel" data-type="steel">Steel</button>
-                <button type="button" class="filter-button type-ice" data-type="ice">Ice</button>
-                <button type="button" class="filter-button type-ghost" data-type="ghost">Ghost</button>
-                <button class="reset-button">Show All</button>
+                <button type="button" class="filter-button" data-type="bug">Bug</button>
+                <button type="button" class="filter-button" data-type="dark">Dark</button>
+                <button type="button" class="filter-button" data-type="dragon">Dragon</button>
+                <button type="button" class="filter-button" data-type="electric">Electric</button>
+                <button type="button" class="filter-button" data-type="fairy">Fairy</button>
+                <button type="button" class="filter-button" data-type="fighting">Fighting</button>
+                <button type="button" class="filter-button" data-type="fire">Fire</button>
+                <button type="button" class="filter-button" data-type="flying">Flying</button>
+                <button type="button" class="filter-button" data-type="ghost">Ghost</button>
+                <button type="button" class="filter-button" data-type="grass">Grass</button>
+                <button type="button" class="filter-button" data-type="ground">Ground</button>
+                <button type="button" class="filter-button" data-type="ice">Ice</button>
+                <button type="button" class="filter-button" data-type="normal">Normal</button>
+                <button type="button" class="filter-button" data-type="poison">Poison</button>
+                <button type="button" class="filter-button" data-type="psychic">Psychic</button>
+                <button type="button" class="filter-button" data-type="rock">Rock</button>
+                <button type="button" class="filter-button" data-type="steel">Steel</button>
+                <button type="button" class="filter-button" data-type="water">Water</button>
+                <button class="reset-button" id="show-all-button">Show All</button>
             </div>
         </form>
     </section>
@@ -43,7 +47,7 @@
         </div>
         <p class="message"></p>
     </section>
-
+    <footer class="footer"><span class="footer-text">Made by Santi</span></footer>
     <script src="./api.js"></script>
 </body>
 

@@ -1,24 +1,29 @@
-# Pokemon Guide
+# Pokedex Project
 
-Welcome to the Pokemon Guide, a website dedicated to exploring the world of Pokemon and discovering all the incredible creatures that inhabit it.
+Welcome to the Pokedex Project! This project is a comprehensive guide to the world of Pokemon, where you can discover and learn about the different types, abilities, and more of these incredible creatures.
 
-This project is built using HTML, CSS and JavaScript, it uses the PokeAPI to fetch the data of Pokemons.
+## Getting Started
 
-## Features
+To run the project, simply open the index.html file in your web browser. You should see the Pokedex homepage with a Pokemon logo and a filter button group.
 
-Displays a list of Pokemons with their sprites, names and types
-Search bar to search a specific Pokemon by name
-Pagination to navigate through the Pokemons
-Error handling in case the fetch request fails
-Caching the data to improve the performance
+You can filter the Pokemon by their types by clicking on the corresponding filter button. You can also show all Pokemon by clicking on the Show All button.
 
-## How to run
+## Built With
 
-Clone the repository to your local machine
-Open the index.html file in your browser
-Contribute
-We welcome contributions to the project. If you have an idea for a new feature or have found a bug, please open an issue. If you would like to contribute with code, please fork the repository and open a pull request with your changes.
+- HTML
+- CSS
+- JavaScript
+- PokeAPI
 
-## License
+## Author
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Santi - <https://github.com/santichausis>
+
+## Acknowledgments
+
+The Pokemon logo and artwork used in this project are the property of The Pokemon Company and Nintendo.
+This project uses data from the PokeAPI, an open-source Pokemon API.
+
+## Note
+
+The project is not complete, you need to implement the logic for filtering and displaying the pokemons using the pokeAPI.
