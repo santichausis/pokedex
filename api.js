@@ -19,7 +19,7 @@ async function fetchPokemon(id) {
 // Call the pokemon
 async function fetchPokemons() {
     try {
-        const promises = Array.from({ length: 10 }, (_, i) => fetchPokemon(i + 1));
+        const promises = Array.from({ length: 100 }, (_, i) => fetchPokemon(i + 1));
         const pokemonData = await Promise.all(promises);
         pokemonData.forEach(createPokemon);
     } catch (error) {
@@ -53,7 +53,7 @@ filterButtons.forEach(button => {
             });
         }
         if (visiblePokemon === 0) {
-            message.textContent = 'Any pokemon available';
+            message.textContent = `Any ${event.target.textContent} Pokemon available`;
         } else {
             message.textContent = '';
         }
@@ -71,11 +71,11 @@ const createPokemon = pokemon => {
     `).join(" ");
 
     const html = `
+    <p class="pokemon-number">#${pokemon.id.toString().padStart(3, 0)}</p>
         <div class="img-container">
             <img src="https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg" alt="This is ${pokemon.name}" loading="lazy" class="img-detail">
         </div>
         <div class="info-container">
-            <p class="pokemon-number">#${pokemon.id.toString().padStart(3, 0)}</p>
             <p class="name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
             <div class="types">
                 ${types}
