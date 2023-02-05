@@ -1,29 +1,30 @@
-# Pokedex Project
+# Pokedex
 
-Welcome to the Pokedex Project! This project is a comprehensive guide to the world of Pokemon, where you can discover and learn about the different types, abilities, and more of these incredible creatures.
+A Pokedex made with Next.js and React.
 
-## Getting Started
+## Features
 
-To run the project, simply open the index.html file in your web browser. You should see the Pokedex homepage with a Pokemon logo and a filter button group.
+- Show a list of all 151 original Pokemon from the first generation
+- Filter Pokemon by type
+- View detailed information about each Pokemon, including name, type, and image
 
-You can filter the Pokemon by their types by clicking on the corresponding filter button. You can also show all Pokemon by clicking on the Show All button.
+## Technologies Used
 
-## Built With
+- Next.js
+- React
+- Fetch API
 
-- HTML
-- CSS
-- JavaScript
-- PokeAPI
+## How to run
 
-## Author
+- Clone the repository
+- Run npm install to install the dependencies
+- Run npm run dev to start the development server
+- Open your browser and navigate to http://localhost:3000
 
-Santi - <https://github.com/santichausis>
+## Future Improvements
 
-## Acknowledgments
-
-The Pokemon logo and artwork used in this project are the property of The Pokemon Company and Nintendo.
-This project uses data from the PokeAPI, an open-source Pokemon API.
-
-## Note
-
-The project is not complete, you need to implement the logic for filtering and displaying the pokemons using the pokeAPI.
+- Add more information about each Pokemon, such as HP and abilities
+- Add a search bar to search for specific Pokemon by name
+- Show the evolution chain for each Pokemon
+- Add an option to view Pokemon from other generations.
+  
